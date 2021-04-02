@@ -1,4 +1,5 @@
 const functions = require("firebase-functions");
+const axios = require("axios");
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -12,10 +13,11 @@ exports.helloworld = functions.https.onRequest((req,res)=>{
     res.send("Hello from firebase functions...");
 })
 
-exports.api = functions.https.onRequest((req,res)=>{
+exports.api = functions.https.onRequest(async (req,res)=>{
     switch(req.method){
         case 'GET':
-            res.send('it was GET request');
+            const response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
+            res.send(response.data);
             break;
 
         case 'POST':
