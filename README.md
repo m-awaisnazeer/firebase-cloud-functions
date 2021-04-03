@@ -1,8 +1,11 @@
 /*
     Initializing
 npm install -g firebase-tools 
+
 firebase init
+
 firebase init emulators 
+
 firebase emulators:start 
 
 Deploying Functions....
