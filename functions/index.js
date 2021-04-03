@@ -46,3 +46,19 @@ exports.userDeleted = functions.auth.user().onDelete(user =>{
     console.log(`${user.email} is deleted`)
     return Promise.resolve()
 })
+
+exports.fruitAdded = functions.firestore.document('/fruits/{documentId}').onCreate((snapshot,context)=>{
+    console.log(snapshot.data(), 'created');
+    return Promise.resolve();
+})
+
+exports.fruitDeleted = functions.firestore.document('/fruits/{documentId}').onDelete((snapshot,context)=>{
+    console.log(snapshot.data(), 'deleted');
+    return Promise.resolve();
+})
+
+exports.fruitUpdated = functions.firestore.document('/fruits/{documentId}').onUpdate((snapshot,context)=>{
+    console.log(snapshot.before.data(), 'Before');
+    console.log(snapshot.after.data(), 'updated');
+    return Promise.resolve();
+})
