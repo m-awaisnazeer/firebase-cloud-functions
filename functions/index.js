@@ -62,3 +62,9 @@ exports.fruitUpdated = functions.firestore.document('/fruits/{documentId}').onUp
     console.log(snapshot.after.data(), 'updated');
     return Promise.resolve();
 })
+
+
+exports.scheduleFunction = functions.pubsub.schedule('* * * * *').onRun(context =>{
+    console.log("I'm running/executing every minute...")
+    return null;
+})
