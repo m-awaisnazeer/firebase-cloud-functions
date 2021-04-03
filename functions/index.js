@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const axios = require("axios");
+const axios = require("axios"); // use for get data from another source and sent back to the requested request.
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -71,9 +71,16 @@ exports.helloworld = functions.https.onRequest((req,res)=>{
 
 
 /*
+    "Initializing"
+npm install -g firebase-tools 
+firebase init
+firebase init emulators 
+firebase emulators:start 
+
 Deploying Functions....
- firebase deploy --only functions
-  firebase deploy --only functions:helloworld // to deploy only one specific function
-  firebase deploy --only "functions:scheduleFunction"
+
+firebase deploy --only functions
+firebase deploy --only functions:helloworld // to deploy only one specific function
+firebase deploy --only "functions:scheduleFunction"
 
 */
