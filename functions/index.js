@@ -34,3 +34,15 @@ exports.api = functions.https.onRequest(async (req,res)=>{
             break;
     }
 })
+
+
+exports.userAdded = functions.auth.user().onCreate(user =>{
+    console.log(`${user.email} is created`)
+    return Promise.resolve()
+})
+
+
+exports.userDeleted = functions.auth.user().onDelete(user =>{
+    console.log(`${user.email} is deleted`)
+    return Promise.resolve()
+})
